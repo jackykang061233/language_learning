@@ -1,0 +1,38 @@
+<!--
+add words
+learn words
+show all words
+today test
+word meaning match
+-->
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Home Page </title>
+	    	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	    	{% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'jp_learning/nav_bar/nav_bar.css' %}">
+            <style>
+            	body{
+            		background-color: lightblue;
+            	}
+            </style>
+	    </head>
+
+	    <body>
+	    	<!-- <div class="topnav">
+			    <a href="{% url 'flashcards:add_words' %}">Add new word</a>
+	    		<a href="{% url 'flashcards:learn_words' %}">Learn words</a>
+	    		<a href="{% url 'flashcards:words_list' %}">All words</a>
+	    		<a href="{% url 'flashcards:today_test_start' %}">Today's Test</a>
+	    		<a href="{% url 'flashcards:words_match' %}">Words match</a>
+			</div> -->
+			<div id="nav-placeholder"> </div>
+
+				<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+	    </body>
+	</html>

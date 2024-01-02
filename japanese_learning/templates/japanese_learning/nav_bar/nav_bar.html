@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Home Page </title>
+	    	{% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/nav_bar.css' %}">
+	    	<style>
+	    		a {color: inherit;}
+	    	</style>
+	    </head>
+
+	    <body>
+	    	<div class="topnav">
+	    		<a href="{% url 'jp_learning:home_page' %}">Home Page</a>
+
+	    		<div class="dropdown">
+	    			<button class="dropbtn">Adding</button>
+	    			<div class="dropdown-content">
+					    <a href="{% url 'jp_learning:add_vocabulary' %}">Add new Word</a>
+			    		<a href="{% url 'jp_learning:add_category' %}">Add new Category</a>
+			    		<a href="{% url 'jp_learning:add_sentence' %}">Add new Sentence</a>
+			    		<a href="{% url 'jp_learning:add_sentence_category' %}">Add new Sentence Category</a>
+			    		<a href="{% url 'jp_learning:add_grammer' %}">Add new Grammer</a>
+			    		<a href="{% url 'jp_learning:add_grammer_test' %}">Add new Grammer test</a>
+			    		<a href="{% url 'jp_learning:add_grammer_category' %}">Add new Grammer Category</a>
+			    	</div>
+			    </div>
+
+			    <div class="dropdown" >
+	    			<button class="dropbtn">List</button>
+	    			<div class="dropdown-content">
+					    <a href="{% url 'jp_learning:list_home_page' %}">List Vocaulary</a>
+					    <a href="{% url 'jp_learning:list_sentence_home_page' %}">List Sentence</a>
+					</div>
+			    </div>
+
+			    <div class="dropdown" >
+	    			<button class="dropbtn">Practice</button>
+	    			<div class="dropdown-content">
+					    <a href="{% url 'jp_learning:practice_home_page' %}">Practice Vocaulary</a>
+					    <a href="{% url 'jp_learning:practice_sentence_home_page' %}">Practice Sentence</a>
+					</div>
+			    </div>
+
+			    <div class="dropdown" >
+	    			<button class="dropbtn">Grammer</button>
+	    			<div class="dropdown-content">
+					    <a href="{% url 'jp_learning:list_grammer_home_page' %}">List Grammer</a>
+					    <a href="{% url 'jp_learning:practice_sentence_home_page' %}">Practice Sentence</a>
+					</div>
+			    </div>
+	    
+			</div>
+	    </body>
+	</html>

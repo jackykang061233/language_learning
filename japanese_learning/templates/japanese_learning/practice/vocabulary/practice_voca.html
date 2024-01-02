@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Practice Vocabulary</title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/test.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>
+	    	<h1 style='text-align: center;font-size:60px;margin-top: 60px;'> Today's test </h1>
+            <div class='container'>
+                <div class='card'>
+                	   {{ progress }}<br>
+                	   {% if translate %}
+                       {{ chinese }}<br>     
+                       {% endif %}                   
+                       <div class='example_sentence'>
+	                       <form action="" method="post">
+		    	           {% csrf_token %}
+		    	           		<h1 style='text-align: center;font-size:30px;'> Vocabulary</h1>
+		    	           		{% if not translate %}
+				    	        <audio
+								    src="{{voca}}"
+								    controls
+								></audio>	
+								{% endif %}						
+		                       
+		                        {% if example %}
+		                        <textarea class="longInput" cols="70" rows="5" name='answer'></textarea><br>
+		                        <h1 style='text-align: center;font-size:30px;'> Example </h1>
+			                        {% if not translate%}
+			                       <audio
+							    		src="{{example}}"
+							    		controls
+									></audio>
+									{% endif %}								
+								<textarea class="longInput" cols="70" rows="5" name='example'></textarea><br>        
+								{% else %}
+								<textarea class="longInput" cols="70" rows="15" name='answer'></textarea><br>				        
+		                        {% endif %}
+	                       
+	                       <input type="submit" value="Submit" style='font-size: 16px;'>
+	                        </form>
+                   		</div>
+                </div>
+			</div>
+			<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+        </body>
+    </html>

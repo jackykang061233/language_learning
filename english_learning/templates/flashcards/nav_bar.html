@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Home Page </title>
+	    	{% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'flashcards/nav_bar.css' %}">
+	    	<style>
+	    		a {color: inherit;}
+	    	</style>
+	    </head>
+
+	    <body>
+	    	<div class="topnav">
+	    		<a href="{% url 'flashcards:home_page' %}">Home Page</a>
+
+	    		<div class="dropdown">
+	    			<button class="dropbtn">Adding</button>
+	    			<div class="dropdown-content">
+					    <a href="{% url 'flashcards:add_words' %}">Add new word</a>
+			    		<a href="{% url 'flashcards:add_texts' %}">Add new text</a>
+			    	</div>
+			    </div>
+
+	    		<div class="dropdown">
+	    			<button class="dropbtn">Words Learning</button>
+	    			<div class="dropdown-content">
+			    		<a href="{% url 'flashcards:learn_words' %}">Learn words</a>
+			    		<a href="{% url 'flashcards:words_list' %}">All words</a>
+			    	</div>
+			    </div>
+
+			    <div class="dropdown">
+	    			<button class="dropbtn">Texts Learning</button>
+	    			<div class="dropdown-content">
+			    		<!-- <a href="{% url 'flashcards:learn_words' %}">Learn texts</a> -->
+			    		<a href="{% url 'flashcards:texts_list' %}">All texts</a>
+			    	</div>
+			    </div>
+
+			    <div class="dropdown">
+	    			<button class="dropbtn">Testing</button>
+	    			<div class="dropdown-content">
+			    		<a href="{% url 'flashcards:today_test_start' %}">Today's word test</a>
+			    		<a href="{% url 'flashcards:today_text_test_start' %}">Today's text test</a>
+			    		<a href="{% url 'flashcards:words_match' %}">Words match</a>
+			    	</div>
+			    </div>
+
+			     <div class="dropdown">
+	    			<button class="dropbtn">Language</button>
+	    			<div class="dropdown-content">
+			    		<a href="{% url 'flashcards:english' %}">English</a>
+			    		<a href="{% url 'flashcards:japanese' %}">Japanese</a>
+			    	</div>
+			    </div>
+
+			    <div class="search">
+		    		<form action="{% url 'flashcards:search' %}" method="post" >
+		    			{% csrf_token %}
+					      <input type="search" style="height: 230px;" name='search_word'>
+					      <button type="submit">Search</button>
+	    			</form>
+	    		</div>
+			</div>
+	    </body>
+	</html>

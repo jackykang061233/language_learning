@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Sentence of Category </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/practice.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+            <style>
+				td {font-size: 30px;}
+				
+			</style>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>	    	
+	    	<div class="sent_container">
+		    	<h1 style='text-align: center;font-size:60px;'> {{ cat }} </h1>
+		    	<h2 style='text-align: center;font-size:40px;'>Total: {{ total }}</h2>
+		    	<div class="pagination">
+			    <span class="step-links">
+			        {% if page_obj.has_previous %}
+			            <a href="?page=1">&laquo; first</a>
+			            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+			        </span>
+
+			        {% if page_obj.has_next %}
+			            <a href="?page={{ page_obj.next_page_number }}">next</a>
+			            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+			        {% endif %}
+			    </span>
+			</div>
+                
+		    	<table border="1" style="margin:auto;background-color: rgba(181, 215, 228, 0.8);display: relative;width: 85%"> 
+		    		
+		    		<thead style="font-weight: bold;">
+		    			<tr>	    				
+		    				<td>漢字</td>
+							<td>日文</td>
+							<td>中文</td>
+							<!-- <td>發音</td> -->
+						</tr>
+					</thead>
+					{% for sent in page_obj %}    
+	            	<tr>
+	            		<td> {{ sent.kanji }} </td>
+	            		<td> {{ sent.jp }} </td>
+	            		<td> {{ sent.zh }} </td>		
+	            	</tr>
+	            	{% endfor %}
+				</table><br><br>	
+				
+			
+			
+
+	  		
+			</div>
+			<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+	  	</body>
+	 </html>
+

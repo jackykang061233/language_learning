@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Practice sentence category </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/practice.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+            <style>
+            	ul{display: table;margin-top: 100px;margin: 0 auto;}
+            	li {font-size: 50px;margin: auto;}
+            </style>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>
+	    	<ul>
+	    	{% for c in cats %}
+	    		<li><a href="{% url 'jp_learning:practice_sentence_cat_home_page' c.id%}">{{ c.cat }}</a></li>
+			{% endfor %}
+			</ul>  
+
+
+			<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+	  	</body>
+	 </html>
+

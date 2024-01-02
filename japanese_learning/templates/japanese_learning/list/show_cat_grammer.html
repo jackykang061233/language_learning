@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Grammer of Category </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/practice.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+            <style>
+				td {font-size: 30px;}
+				
+			</style>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>	    	
+	    	<div class="sent_container">
+		    	<h1 style='text-align: center;font-size:60px;'> {{ cat }} </h1>
+		    	<h2 style='margin-left: 50px'> {{ grammers.explanation }} </h2>	
+			</div>
+			<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+	  	</body>
+	 </html>
+

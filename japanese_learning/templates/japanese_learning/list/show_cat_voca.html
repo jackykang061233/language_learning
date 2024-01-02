@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Voca of Category </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/practice.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+            <style>
+				td {font-size: 30px;}
+				
+			</style>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>
+	    	<div class="container">
+		    	<h1 style='text-align: center;font-size:60px;'> {{ cat }} </h1>
+		    	<h2 style='text-align: center;font-size:40px;'>Total: {{ total }}</h2>
+
+		    	<table border="1" style="margin:auto;background-color: rgba(181, 215, 228, 0.8);display: relative;width: 80%"> 
+		    		<thead style="font-weight: bold;">
+						<tr>
+							<td>日文</td>
+							<td>假名 </td>
+							<td>中文</td>
+							<!-- <td>發音</td> -->
+						</tr>
+					</thead>             	
+	            	{% for word in words %}
+	            	<tr>
+	            		<td> {{ word.jp }} </td>
+	            		<td> {{ word.kanji }} </td>
+	            		<td> {{ word.zh }} </td>		
+	            	</tr>
+				    {% endfor %}
+				</table><br><br>	
+			</div>
+			<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+	  	</body>
+	 </html>
+

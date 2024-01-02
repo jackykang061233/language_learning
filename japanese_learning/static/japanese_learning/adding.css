@@ -1,0 +1,25 @@
+.container{
+    width: 45vw;
+    height: 80vh;
+    margin-top: 300px;
+    margin:  auto;  
+    border-style: double;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.text_container{
+    width: 45vw;
+    height: 80vh;
+
+    margin-top: 1000px;
+    margin:  auto;  
+    border-style: double;
+    background-color: white;
+    border-radius: 25px;
+}
+
+
+body{
+    background-color: lightblue;
+}

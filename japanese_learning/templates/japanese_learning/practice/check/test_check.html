@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Today Test </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/test.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>
+	    	<h1 style='text-align: center;font-size:60px;margin-top: 100px;'> Today's test </h1>
+            <div class='container'>
+                <div class='card'>
+                       <div class='example_sentence' style='margin-top:50px'>
+                       	{% if voca %}
+                       		<p><b>Correct vocabulary:</b> {{ question.kanji }} {{'/'}} {{ question.jp}}</p>
+                            <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your answer: </b> {{ answer }}</p>
+                            {% if question.example_sentence %}
+                            <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Correct example:</b> {{ question.example_sentence }}</p>
+                            <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your answer: </b> {{ example }}</p>
+                            {% endif %}
+
+                       	{% else %}
+                           <!-- <p><b>Correct answer:</b> {{ question.kanji }} {{'/'}} {{ question.jp}}</p> -->
+						   <p><b>Correct answer:</b> {{ question.kanji }}</p>
+                           <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your answer: </b> {{ answer }}</p>
+                        {% endif %}
+                           <div class='check_button'>
+	                           <a href="{% url 'jp_learning:test_pass' question.id voca translate%}" class="button" style='font-size:20px;'>pass</a>
+	                       </div>
+	                       <div class='space'></div>
+	                       <div class='check_button'>
+	                           <a href="{% url 'jp_learning:test_again' voca translate%}" class="button" style='font-size:20px;'>again</a>
+	                       </div>
+	                       <div class='space'></div>
+	                       <div class='check_button'>
+	                           <a href="{% url 'jp_learning:test_fail' question.id voca translate%}" class="button"style='font-size:20px;'>fail</a>
+	                       </div>
+	                   </div>
+                   		</div>
+                </div>
+			</div>
+			<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+        </body>
+    </html>

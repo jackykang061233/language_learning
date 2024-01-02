@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Searched Word's Flashcard </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'flashcards/flashcards.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>
+	    	<h1 style="text-align: center;font-size:60px;margin-top: 60px;"> Searched word</h1>
+	    	{% for word in words %}
+	    	<div class="container">
+	  			<div class='card'>
+		  			<div class="face front">{{ word.word }}</div>
+	                <div class="face back">{{ word.meaning }}<br><br><br>{{ word.example_sentence }}</div>
+	      		</div>
+	  		</div>
+	  		{% endfor %}
+
+				<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'flashcards:nav_bar' %}");
+				});
+				</script>
+	  		<script src="{% static 'flashcards/flashcards.js' %}"></script> 
+	  	</body>
+	 </html>
+

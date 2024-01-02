@@ -1,0 +1,53 @@
+.container{
+	width: 25vw auto;
+	height: 40vh auto;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	background-color: white;
+
+	margin:  auto;
+    margin-top: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
+    border-style: solid;
+    border-radius: 25px;
+}
+
+.face{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 90%;
+	height: 90%;
+}
+
+.title{
+	text-align: center;
+    font-size: 60px;
+    font-style: bold;
+}
+
+.text{
+	margin-top: 20px;
+    font-size: 20px;
+}
+
+.sentence{
+	text-align: center;
+	font-size: 40px;
+}
+
+body{
+	background-color: lightblue;
+	font-family: sans-serif;
+}
+
+.pagination{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

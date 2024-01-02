@@ -1,0 +1,27 @@
+<!DOCTYPE>
+    <html>
+        <head> 
+            <title> Start the Test </title>
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/test.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        </head>
+
+        <body>
+        	<div id="nav-placeholder"> </div>
+            <div class='start_button_set'>
+                <div class='start_button'>
+                		<a href="{% url 'jp_learning:sent_test_start' cat_id 0%}" class="button">Listening</a>
+                </div>
+                <div class='start_button'>
+                        <a href="{% url 'jp_learning:sent_test_start' cat_id 1%}" class="button">Translating</a>
+                </div>
+            </div>
+            <script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+        </body>
+    </html>
+

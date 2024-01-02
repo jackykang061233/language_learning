@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title>Text test start</title>
+	    	<link rel="stylesheet" type="text/css" href="{% static 'flashcards/text_flashcards.css' %}">
+	    	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>
+	    	<div class="container">
+		    	<h1> Enter the wished to test text id: </h1>
+		    	<<!-- form method='post'>
+		    		{% csrf_token %} 	
+		    		<input type="text" name='to_test_id'>
+					<button type="submit">Submit</button><br><br>
+				</form>
+			</div> -->
+				<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'flashcards:nav_bar' %}");
+				});
+				</script>
+		</body>
+	</html>
+

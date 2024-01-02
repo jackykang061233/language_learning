@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Today Test </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'flashcards/test.css' %}">
+	    </head>
+
+	    <body>
+	    	<h1 style='text-align: center;font-size:60px;'> Today's test </h1>
+            <div class='container'>
+                {% for card in page_obj %}
+                <div class='card'>
+                       {{ card.word }}<br>
+                       <div class='example_sentence'>
+	                       <form action="" method="post">
+		    	           {% csrf_token %}
+	                       <textarea class="longInput" cols="70" rows="15" name='example'></textarea><br>
+	                       <input type="submit" value="Submit">
+	                        </form>
+                   		</div>
+                </div>
+				{% endfor %}
+
+			<div class="pagination">
+			    <span class="step-links">
+			        {% if page_obj.has_previous %}
+			            <a href="?page=1">&laquo; first</a>
+			            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+			        {% endif %}
+
+			        <span class="current">
+			            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+			        </span>
+
+			        {% if page_obj.has_next %}
+			            <a href="?page={{ page_obj.next_page_number }}">next</a>
+			            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+			        {% endif %}
+			    </span>
+			    </div>
+			</div>
+        </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	    <!-- <body>
+	    	{% for w in today_flashcards %}
+	    	<div class="container">
+	  			<div class="flashcards">
+	  				<div class="flashcards-inner">
+		  				<div class="flashcards-front">{{ w.word }}</div>
+		  				<form action="/action_page.php">
+						    <label for="fname">First name:</label><br>
+						    <input type="text" id="fname" name="fname" value="John"><br>
+						    <label for="lname">Last name:</label><br>
+						    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+						    <input type="submit" value="Submit">
+						</form>
+	                    <div class="flashcards-back">{{ w.meaning }}<br><br>{{ w.example_sentence }}</div> -->
+                   <!--  </div>
+	      		</div>
+	  		</div>
+	  		{% endfor %}
+	  		<script src="{% static 'flashcards/flashcards.js' %}"></script> 
+
+	  		
+	  	</body> -->
+	 </html>
+

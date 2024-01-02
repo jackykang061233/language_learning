@@ -1,0 +1,52 @@
+.container{
+    width: 60vw;
+    height: 100%;
+    margin-top: 300px;
+    margin:  auto;  
+    border-style: double;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.text_container{
+    width: 100%;
+    height: 100%;
+
+    margin-top: 100px;
+    margin:  auto;  
+    border-style: double;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.sent_container{
+    width: 80vw;
+    height: 100%;
+    margin-top: 300px;
+    margin:  auto;  
+    border-style: double;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.sent_text_container{
+    width: 100%;
+    height: 100%;
+
+    margin-top: 100px;
+    margin:  auto;  
+    border-style: double;
+    background-color: white;
+    border-radius: 25px;
+}
+
+body{
+    background-color: lightblue;
+}
+
+.pagination{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<html>
+	    <head>
+	    	<title> Add new sentence </title>
+	        {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'japanese_learning/adding.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	    </head>
+
+	    <body>
+	    	<div id="nav-placeholder"> </div>
+	    	<div class="container">
+		    	<h1 style='text-align: center;font-size:60px;'> Add new sentence </h1>
+
+		    	<table border="1" style="margin:auto;background-color: rgba(181, 215, 228, 0.8);display: relative;">
+		    	    <form action="{% url 'jp_learning:add_sentence' %}" method="post">
+		    	    {% csrf_token %} 	               	
+	            	{% for field in form.visible_fields %}
+	            	<tr>
+	            		<td>{{ field.help_text }}</td>
+	            		<td> {{ field }} </td>		
+	            	</tr>
+				    {% endfor %}
+				</table><br><br>	
+				<input type="submit" value="Submit" style="margin:0 auto;display:block;">
+				</form>
+			</div>
+			<script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'jp_learning:nav_bar' %}");
+				});
+				</script>
+	  	</body>
+	 </html>
+

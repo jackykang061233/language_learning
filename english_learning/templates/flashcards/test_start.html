@@ -1,0 +1,22 @@
+<!DOCTYPE>
+    <html>
+        <head> 
+            <title> Start the Test </title>
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'flashcards/test.css' %}">
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        </head>
+
+        <body>
+        	<div id="nav-placeholder"> </div>
+            <div class='start_button'>
+            		<a href="{% url 'flashcards:today_test' first_word%}" class="button">Start Quiz</a>
+            </div>
+            <script>
+				$(function(){
+				  $("#nav-placeholder").load("{% url 'flashcards:nav_bar' %}");
+				});
+				</script>
+        </body>
+    </html>
+
